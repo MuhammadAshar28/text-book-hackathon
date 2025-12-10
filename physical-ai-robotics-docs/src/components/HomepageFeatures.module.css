@@ -1,0 +1,328 @@
+/**
+ * Premium HomepageFeatures CSS Module
+ */
+
+.features {
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background gradient */
+.features::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+  animation: gradientShift 15s ease infinite alternate;
+  z-index: 0;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.featureCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Glass morphism effect */
+.featureCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%);
+  border-radius: 24px;
+  z-index: -1;
+}
+
+/* Hover effects */
+.featureCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 60px rgba(120, 119, 198, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Glow effect on hover */
+.featureCard:hover::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(120, 119, 198, 0.3),
+    rgba(255, 119, 198, 0.3),
+    rgba(120, 219, 255, 0.3));
+  border-radius: 26px;
+  z-index: -2;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .featureCard {
+  background: rgba(30, 30, 40, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .featureCard:hover {
+  background: rgba(40, 40, 60, 0.4);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 60px rgba(120, 119, 198, 0.2);
+}
+
+.featureIconContainer {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+}
+
+.featureSvg {
+  height: 100%;
+  width: 100%;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+  transition: all 0.4s ease;
+}
+
+.featureCard:hover .featureSvg {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+}
+
+/* AI Chatbot indicator */
+.aiIndicator {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Gradient text styles - corrected version */
+.featureTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #2d3748, #4a5568);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .featureTitle {
+  background: linear-gradient(45deg, #ffffff, #a0aec0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.featureCard:hover .featureTitle {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.featureDescription {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+[data-theme='dark'] .featureDescription {
+  color: #cbd5e0;
+}
+
+.learnMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #667eea;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.learnMore:hover {
+  background: rgba(102, 126, 234, 0.2);
+  transform: translateX(5px);
+  color: #764ba2;
+}
+
+/* Section title */
+.sectionTitle {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  background: linear-gradient(45deg, #2d3748, #4a5568);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-theme='dark'] .sectionTitle {
+  background: linear-gradient(45deg, #ffffff, #a0aec0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Floating animation for AI chatbot feature */
+.aiFeature {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .features {
+    padding: 2rem 0;
+  }
+  
+  .featureCard {
+    padding: 1.5rem;
+    min-height: 380px;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .featureGrid {
+    padding: 0.5rem;
+  }
+}
+
+/* Additional fallbacks for better browser compatibility */
+.featureCard {
+  /* Fallback for browsers that don't support backdrop-filter */
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme='dark'] .featureCard {
+  /* Fallback for browsers that don't support backdrop-filter */
+  background-color: rgba(30, 30, 40, 0.95);
+}
+
+/* Fallback for browsers that don't support gradient text */
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+  .featureTitle,
+  .sectionTitle {
+    color: #2d3748;
+  }
+  
+  [data-theme='dark'] .featureTitle,
+  [data-theme='dark'] .sectionTitle {
+    color: #ffffff;
+  }
+}
+
+/* Ensure proper text rendering for gradient text */
+.featureTitle, .sectionTitle {
+  display: inline-block;
+}
+
+/* Add smooth scrolling for better UX */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

@@ -1,0 +1,396 @@
+/**
+ * Premium Tech Stack & Ecosystem Section
+ */
+
+.techStackSection {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, 
+    rgba(30, 30, 40, 0.03) 0%,
+    rgba(40, 40, 60, 0.03) 50%,
+    rgba(50, 50, 80, 0.03) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .techStackSection {
+  background: linear-gradient(135deg, 
+    rgba(20, 20, 30, 0.1) 0%,
+    rgba(30, 30, 50, 0.1) 50%,
+    rgba(40, 40, 70, 0.1) 100%);
+}
+
+/* Animated grid background */
+.gridBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(120, 119, 198, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 119, 198, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translateY(50px) translateX(50px);
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #2d3748, #4a5568);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-theme='dark'] .sectionTitle {
+  background: linear-gradient(45deg, #ffffff, #a0aec0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sectionSubtitle {
+  font-size: 1.2rem;
+  color: #718096;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+[data-theme='dark'] .sectionSubtitle {
+  color: #a0aec0;
+}
+
+/* Quadrant System */
+.quadrantGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 1024px) {
+  .quadrantGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.quadrant {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme='dark'] .quadrant {
+  background: rgba(30, 30, 40, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quadrant:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.quadrantTitle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.quadrantIcon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.quadrant:nth-child(2) .quadrantIcon {
+  background: linear-gradient(45deg, #48bb78, #38a169);
+}
+
+.quadrant:nth-child(3) .quadrantIcon {
+  background: linear-gradient(45deg, #ed8936, #dd6b20);
+}
+
+.quadrant:nth-child(4) .quadrantIcon {
+  background: linear-gradient(45deg, #9f7aea, #805ad5);
+}
+
+.quadrantName {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+[data-theme='dark'] .quadrantName {
+  color: #ffffff;
+}
+
+.quadrantDescription {
+  color: #718096;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+[data-theme='dark'] .quadrantDescription {
+  color: #a0aec0;
+}
+
+/* Tech Cards Grid */
+.techCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.techCard {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+[data-theme='dark'] .techCard {
+  background: rgba(40, 40, 60, 0.6);
+  border: 1px solid rgba(74, 85, 104, 0.8);
+}
+
+.techCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme='dark'] .techCard:hover {
+  background: rgba(50, 50, 70, 0.8);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.techIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.pythonIcon {
+  background: linear-gradient(45deg, #3776ab, #306998);
+  color: white;
+}
+
+.jsIcon {
+  background: linear-gradient(45deg, #f7df1e, #f0db4f);
+  color: #323330;
+}
+
+.tsIcon {
+  background: linear-gradient(45deg, #3178c6, #235a97);
+  color: white;
+}
+
+.aiIcon {
+  background: linear-gradient(45deg, #10a37f, #0d8c6d);
+  color: white;
+}
+
+.frameworkIcon {
+  background: linear-gradient(45deg, #764ba2, #667eea);
+  color: white;
+}
+
+.techInfo {
+  flex: 1;
+}
+
+.techName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
+}
+
+[data-theme='dark'] .techName {
+  color: #ffffff;
+}
+
+.techDescription {
+  font-size: 0.9rem;
+  color: #718096;
+}
+
+[data-theme='dark'] .techDescription {
+  color: #a0aec0;
+}
+
+/* Ecosystem Visualization */
+.ecosystem {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 3rem;
+  margin-top: 4rem;
+}
+
+[data-theme='dark'] .ecosystem {
+  background: rgba(30, 30, 40, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ecosystemTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  background: linear-gradient(45deg, #2d3748, #4a5568);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-theme='dark'] .ecosystemTitle {
+  background: linear-gradient(45deg, #ffffff, #a0aec0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ecosystemGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.ecosystemItem {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .ecosystemItem {
+  background: rgba(40, 40, 60, 0.6);
+}
+
+.ecosystemItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.ecosystemIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.ecosystemItem h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+[data-theme='dark'] .ecosystemItem h4 {
+  color: #ffffff;
+}
+
+.ecosystemItem p {
+  color: #718096;
+  line-height: 1.6;
+}
+
+[data-theme='dark'] .ecosystemItem p {
+  color: #a0aec0;
+}
+
+/* Python UV Badge */
+.pythonUvBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(45deg, #3776ab, #306998);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: pulse 2s infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+  
+  .quadrant {
+    padding: 1.5rem;
+  }
+  
+  .ecosystem {
+    padding: 2rem;
+  }
+  
+  .techCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
