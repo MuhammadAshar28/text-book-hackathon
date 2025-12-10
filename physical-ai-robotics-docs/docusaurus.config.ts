@@ -127,15 +127,7 @@ const config: Config = {
             { label: 'Blog', to: '/blog' },
           ],
         },
-        {
-          title: 'Legal & Support',
-          items: [
-            { label: 'Privacy Policy', to: '/privacy' },
-            { label: 'Terms of Service', to: '/tos' },
-            { label: 'Contributing Guide', to: '/docs/contributing' },
-            { label: 'Help & Support', to: '/help' },
-          ],
-        },
+        
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Course. Built with Docusaurus.`,
     },
